@@ -4,6 +4,8 @@ const routes = express.Router();
 
 const BookController = require("../controllers/BookController");
 
+routes.get("/", (req, res) => { return res.send("BOOKS API by Sivori Junior") });
+
 routes.get("/books", BookController.getAll);
 
 routes.post("/book", BookController.set);
