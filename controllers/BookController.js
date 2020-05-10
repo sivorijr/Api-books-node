@@ -3,7 +3,7 @@ const Book = require("../models/Book");
 class BookController {
     async getAll(req, res) {
         const books = await Book.find().populate({
-            path: "files",
+            path: "data",
             options: { sort: { createdAt: -1 } }
         });
 
@@ -24,10 +24,7 @@ class BookController {
     }
 
     async get(req, res) {
-        const book = await Book.findById(req.params.id).populate({
-            path: "files",
-            options: { sort: { createdAt: -1 } }
-        });
+        const book = await Book.findById(req.params.id);
 
         return res.json(book);
     }
