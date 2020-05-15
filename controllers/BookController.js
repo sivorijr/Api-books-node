@@ -2,37 +2,53 @@ const Book = require("../models/Book");
 
 class BookController {
     async getAll(req, res) {
-        const books = await Book.find().populate({
-            path: "data",
-            options: { sort: { createdAt: -1 } }
-        });
+        try {
+            const books = await Book.find().populate({
+                path: "data",
+                options: { sort: { createdAt: -1 } }
+            });
 
-        return res.json(books);
+            return res.json(books);
+        } catch (err) {
+            next(err);
+        }
     }
 
     async set(req, res) {
-        var newBook = {
-            title: req.body.title,
-            author: req.body.author,
-            numberPages: req.body.numberPages,
-            publisher: req.body.publisher
+        try {
+            var newBook = {
+                title: req.body.title,
+                author: req.body.author,
+                numberPages: req.body.numberPages,
+                publisher: req.body.publisher
+            }
+
+            const book = await Book.create(newBook);
+
+            return res.json(book);
+        } catch (err) {
+            next(err);
         }
-
-        const book = await Book.create(newBook);
-
-        return res.json(book);
     }
 
     async get(req, res) {
-        const book = await Book.findById(req.params.id);
+        try {
+            const book = await Book.findById(req.params.id);
 
-        return res.json(book);
+            return res.json(book);
+        } catch (err) {
+            next(err);
+        }
     }
 
     async delete(req, res) {
-        await Book.findByIdAndDelete(req.params.id);
+        try {
+            await Book.findByIdAndDelete(req.params.id);
 
-        return res.send("Book deleted with success");
+            return res.send("Book deleted with success");
+        } catch (err) {
+            next(err);
+        }
     }
 }
 
