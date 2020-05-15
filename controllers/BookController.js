@@ -10,7 +10,7 @@ class BookController {
 
             return res.json(books);
         } catch (err) {
-            next(err);
+            throw err;
         }
     }
 
@@ -27,7 +27,7 @@ class BookController {
 
             return res.json(book);
         } catch (err) {
-            next(err);
+            throw err;
         }
     }
 
@@ -37,7 +37,7 @@ class BookController {
 
             return res.json(book);
         } catch (err) {
-            next(err);
+            throw err;
         }
     }
 
@@ -47,7 +47,7 @@ class BookController {
 
             return res.send("Book deleted with success");
         } catch (err) {
-            next(err);
+            throw err;
         }
     }
 }
