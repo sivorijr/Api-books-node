@@ -1,3 +1,55 @@
+# Books API
+
+## Related APIs
+
+https://github.com/sivorijr/Api-orders-node/
+https://github.com/sivorijr/Api-customers-node
+ 
+## Technology 
+ 
+* Node.js
+ 
+ 
+## Services Used
+ 
+* Github
+* Heroku
+ 
+
+## API Methods
+ 
+Base URL - https://api-orders-node.herokuapp.com/
+
+GET - "/orders" - Get all orders<br>
+GET - "/order/:id" - Get order of specific id<br>
+DELETE - "/order/:id" - Delete order of specific id<br>
+
+POST - "/order" - Create new order<br>
+order = {<br>
+&emsp;customerID: {<br>
+&emsp;&emsp;type: String,<br>
+&emsp;&emsp;require: true<br>
+&emsp;},<br>
+&emsp;bookID: {<br>
+&emsp;&emsp;type: String,<br>
+&emsp;&emsp;require: true<br>
+&emsp;},<br>
+&emsp;deliveryDate: {<br>
+&emsp;&emsp;type: Date,<br>
+&emsp;&emsp;require: false<br>
+&emsp;}<br>
+}
+ 
+ 
+## Authors
+ 
+* **Sivori Junior**: [![Github Badge](https://img.shields.io/badge/-Github-000?style=flat-square&logo=Github&logoColor=white&link=https://github.com/sivorijr)](https://github.com/sivorijr)
+ 
+ 
+Please follow github and join us!
+Thanks to visiting me and good coding!
+
+
 Books API
 
 Base URL - https://api-books-node.herokuapp.com/
@@ -8,20 +60,20 @@ DELETE - /book/:id - Delete book of specific id<br>
 
 POST - /book - Create new book<br>
 book = {<br>
-  title: {
-    type: String,
-    require: true
-  },<br>
-  author: {
-    type: String,
-    require: true
-  },<br>
-  numberPages: {
-    type: Number,
-    require: false
-  },<br>
-  publisher: {
-    type: String,
-    require: false
-  }<br>
+&emsp;title: {<br>
+&emsp;&emsp;type: String,<br>
+&emsp;&emsp;require: true<br>
+&emsp;},<br>
+&emsp;author: {<br>
+&emsp;&emsp;type: String,<br>
+&emsp;&emsp;require: true<br>
+&emsp;},<br>
+&emsp;numberPages: {<br>
+&emsp;&emsp;type: Number,<br>
+&emsp;&emsp;require: false<br>
+&emsp;},<br>
+&emsp;publisher: {<br>
+&emsp;&emsp;type: String,<br>
+&emsp;&emsp;require: false<br>
+&emsp;}<br>
 }
